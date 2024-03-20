@@ -9,18 +9,18 @@ function Router() {
       path: "/",
       element: <Root />,
       errorElement: <ErrorPage />,
-      children: [
-        {
-          path: "/categories",
-          element: <Categories />,
-          children: [
-            {
-              path: "/:category",
-              element: <Category />
-            }
-          ]
-        }
-      ]
+      // children: [
+      //   {
+      //     path: "/categories",
+      //     element: <Categories />,
+      //     children: [
+      //       {
+      //         path: "/:category",
+      //         element: <Category />
+      //       }
+      //     ]
+      //   }
+      // ]
     }
     ]);
   return <RouterProvider router={router} />

@@ -1,9 +1,9 @@
-import React from "react";
-import { Outlet, Link, useEffect } from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { Outlet, Link } from "react-router-dom"
 
 function Root() {
   const [cartAmount, setCartAmount] = useState(0);
-  const [categories, setCategories] = useState();
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   
@@ -12,6 +12,8 @@ function Root() {
       .then(result => result.json())
       .then(json => setCategories(json))
   }, []);
+
+  
   
   return(
     <div>
@@ -21,15 +23,16 @@ function Root() {
           <span>Shop</span>
         </div>
         <div className="head-categ">
-          <div class="">Browse categories</div> <ul className="dropdown-ul">
-              {categories.map((category) => (
-              <li>{category}</li>
-              ))}
-            </ul>
+          <div className="">Browse categories</div>
+          <ul className="dropdown-ul">
+            {categories.map((category, id) => (
+            <li key={id}>{category}</li>
+            ))}
+          </ul>
         </div>
         <div className="head-cart">
           <span>{cartAmount}</span>
-          <img src="../cart.svg" />
+          <img src="#" />
         </div>
       </div>
       <div>

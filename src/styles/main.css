@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+.menu-btn {
+  background-color: azure;
+  padding: 4px 12px;
+}
+
+.head-categ ul {
+  list-style-type: none;
+}

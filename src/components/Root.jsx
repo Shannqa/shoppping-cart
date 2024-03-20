@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, Link } from "react-router-dom";
+import "../styles/main.css";
 
 function Root() {
   const [cartAmount, setCartAmount] = useState(0);
@@ -12,21 +13,19 @@ function Root() {
       .then(result => result.json())
       .then(json => setCategories(json))
   }, []);
-
-  
   
   return(
     <div>
       <div className="header">
         <div className="head-logo">
           <img src="../logo.png" />
-          <span>Shop</span>
+          <Link to={"/"}>Shop</Link>
         </div>
         <div className="head-categ">
-          <div className="">Browse categories</div>
+          <div className="menu-btn">Browse categories</div>
           <ul className="dropdown-ul">
             {categories.map((category, id) => (
-            <li key={id}>{category}</li>
+            <li key={id}><Link to={"categories/" + category}>{category}</Link></li>
             ))}
           </ul>
         </div>

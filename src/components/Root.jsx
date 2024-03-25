@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
+import React, { useState, useEffect, createContext } from "react";
+import { Outlet, Link, useOutletContext } from "react-router-dom";
 import "../styles/main.css";
 
 function Root() {
@@ -57,7 +57,7 @@ function Root() {
         </div>
       </div>
       <div>
-        <Outlet />
+        <Outlet context={[products, setProducts]} />
       </div>
     </div>
     )

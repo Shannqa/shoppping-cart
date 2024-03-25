@@ -1,37 +1,18 @@
-import React from "react";
-import { useParams } from 'react-router-dom';
-function Category() {
-  let name = useParams();
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/" + name.category)
-      .then(response => {
-        if (response.status >= 400) {
-          throw new Error("server error")
-        }
-        return response.json()
-      })
-      .then(json => setProducts(json))
-      .catch(err => setError(err))
-      .finally(setLoading(false))
-  }, []);
+import React, { useState, useEffect } from "react";
+import { Link, useParams, useOutletContext } from 'react-router-dom';
 
-  if (error) {
-    return(<p>A network error has occured!</p>)
-  }
-  if (loading) {
-    return(<p>Loading....</p>)
-  }
+function Category() {
+  let category = useParams().category;
+  const [products, setProducts] = useOutletContext();
+  const currentProducts = products.filter((item) => item.category == category);
+  console.log(currentProducts); 
   
   return(
     <div className="category">
-      <h3>{name.category}</h3>
+      <h3>{category}</h3>
       <div className="products">
-        {products.map(product => (<div key={product.id} className="product">
-        <h4>{product.title}</h4>
+        {currentProducts.map(product => (<div key={product.id} className="product">
+        <Link to={"/products/" + product.id}><h4>{product.title}</h4> </Link>
         <p className="price">{product.price}</p>
         <img src={product.image} />
         <p>{product.description}</p>

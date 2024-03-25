@@ -1,12 +1,13 @@
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useOutletContext } from 'react-router-dom';
 
 function Categories({ categories }) {
   
   let cat = useParams();
+  const [products, setProducts] = useOutletContext();
   console.log(cat.category);
-  
+
   if (cat) {
-    return(<Outlet />)
+    return(<Outlet context={[products, setProducts]}/>)
   }
   
   return(

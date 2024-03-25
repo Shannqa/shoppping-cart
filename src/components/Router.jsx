@@ -24,7 +24,7 @@ function Router() {
           ]
         },
         {
-          path: "/:product",
+          path: "/products/:product",
           element: <Product />
         }
       ]

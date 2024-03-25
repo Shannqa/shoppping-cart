@@ -4,6 +4,7 @@ import Root from "./Root.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import Categories from "./Categories.jsx";
 import Category from "./Category.jsx";
+import Product from "./Product.jsx";
 
 function Router() {
   const router = createBrowserRouter([

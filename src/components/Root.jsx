@@ -11,40 +11,36 @@ function Root() {
   
   useEffect(() => {
     Promise.all([
-      fetch('https://fakestoreapi.com/products/categories')
-      .then(result => result.json()),
+      fetch('https://fakestoreapi.com/products/categories'),
       fetch("https://fakestoreapi.com/products")
-      .then(result => result.json())
-      ]).then(([jsonCategories, jsonProducts]) => {
-        setCategories(jsonCategories);
-        setProducts(jsonProducts)
-      })
-      .catch();
-    
-    fetch('https://fakestoreapi.com/products/categories')
-      .then(result => result.json())
-      .then(json => setCategories(json))
-      .catch(error => console.error(error))
-
-    fetch("https://fakestoreapi.com/products")
-      .then(response => {
-        if (response.status >= 400) {
-          throw new Error("server error")
-        }
-        return response.json()
-      })
-      .then(json => setProducts(json))
-      .catch(err => setError(err))
-      .finally(setLoading(false))
+    ])
+    .then(response => {
+      if (response[0].status >= 400 || response[1].status >= 400) {
+        throw new Error("Server error")
+      }
+      return Promise.all([response[0].json(), response[1].json()]);
+    })
+    .then(([jsonCategories, jsonProducts]) => {
+      setCategories(jsonCategories);
+      setProducts(jsonProducts)
+    })
+    .catch(err => setError(err))
+    .finally(setLoading(false))
   }, []);
 
-  }, []);
+  if (error) {
+    return(<p>A network error has occured!</p>)
+  }
+  if (loading) {
+    return(<p>Loading....</p>)
+  }
   
+
   return(
     <div>
       <div className="header">
         <div className="head-logo">
-          <img src="../logo.png" />
+          <img src="#" />
           <Link to={"/"}>Shop</Link>
         </div>
         <div className="head-categ">

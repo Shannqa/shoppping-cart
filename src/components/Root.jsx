@@ -5,13 +5,39 @@ import "../styles/main.css";
 function Root() {
   const [cartAmount, setCartAmount] = useState(0);
   const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   
   useEffect(() => {
+    Promise.all([
+      fetch('https://fakestoreapi.com/products/categories')
+      .then(result => result.json()),
+      fetch("https://fakestoreapi.com/products")
+      .then(result => result.json())
+      ]).then(([jsonCategories, jsonProducts]) => {
+        setCategories(jsonCategories);
+        setProducts(jsonProducts)
+      })
+      .catch();
+    
     fetch('https://fakestoreapi.com/products/categories')
       .then(result => result.json())
       .then(json => setCategories(json))
+      .catch(error => console.error(error))
+
+    fetch("https://fakestoreapi.com/products")
+      .then(response => {
+        if (response.status >= 400) {
+          throw new Error("server error")
+        }
+        return response.json()
+      })
+      .then(json => setProducts(json))
+      .catch(err => setError(err))
+      .finally(setLoading(false))
+  }, []);
+
   }, []);
   
   return(

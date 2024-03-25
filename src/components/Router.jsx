@@ -21,6 +21,10 @@ function Router() {
               element: <Category />
             }
           ]
+        },
+        {
+          path: "/:product",
+          element: <Product />
         }
       ]
     }

@@ -4,16 +4,19 @@ function Categories({ categories }) {
   
   let cat = useParams();
   console.log(cat.category);
+  
+  if (cat) {
+    return(<Outlet />)
+  }
+  
   return(
     <div className="categories">
-      <Outlet />
-      {/* {categories.map((category) => {
+      {categories.map((category) => {
         <div>
           <img src="" />
           <p>{category}</p>
         </div>
-      })} */}
-      {/* <p>{cat.category}</p> */}
+      })} 
     </div>
   )
   

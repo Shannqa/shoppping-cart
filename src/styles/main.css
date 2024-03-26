@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -11,11 +15,6 @@
   max-width: 1000px;
   margin: 0 auto;
   font-size: 1.2rem;
-}
-
-.menu-btn {
-  background-color: azure;
-  padding: 4px 12px;
 }
 
 .head-categ ul {
@@ -42,4 +41,43 @@
 .product price {
   font-weight: bold;
   font-size: 1.6rem;
+}
+
+.footer {
+  margin: 12px;
+  padding: 6px;
+}
+
+
+.footer ul {
+  list-style-type: none;
+  
+}
+
+.menu-btn {
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+}
+
+.visible {
+  display: block;
+  animation: expand 500ms ease-in-out;
+  transform-origin: left;
+}
+
+@keyframes expand {
+  0% {
+    transform: scaleY(0);
+  }
+
+  70% {
+    transform: scaleY(1.1);
+  }
+  
+  100% {
+    transform: scaleY(1);
+  }
 }

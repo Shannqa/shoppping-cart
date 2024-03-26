@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Outlet, Link, useOutletContext } from "react-router-dom";
+import Footer from "./Footer.jsx";
 import "../styles/main.css";
 
 function Root() {
@@ -59,6 +60,7 @@ function Root() {
       <div>
         <Outlet context={[products, setProducts]} />
       </div>
+      <Footer />
     </div>
     )
 }

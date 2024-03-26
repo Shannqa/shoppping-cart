@@ -58,14 +58,14 @@ body {
   cursor: pointer;
 }
 
-.menu {
+.menu-list {
   display: none;
 }
 
 .visible {
   display: block;
   animation: expand 500ms ease-in-out;
-  transform-origin: left;
+  transform-origin: top left;
 }
 
 @keyframes expand {
@@ -80,4 +80,13 @@ body {
   100% {
     transform: scaleY(1);
   }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-btn {
+  width: 30px;
 }

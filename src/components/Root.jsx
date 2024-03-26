@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Outlet, Link, useOutletContext } from "react-router-dom";
+import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import "../styles/main.css";
 
@@ -39,27 +40,8 @@ function Root() {
 
   return(
     <div>
-      <div className="header">
-        <div className="head-logo">
-          <img src="#" />
-          <Link to={"/"}>Shop</Link>
-        </div>
-        <div className="head-categ">
-          <div className="menu-btn">Browse categories</div>
-          <ul className="dropdown-ul">
-            {categories.map((category, id) => (
-            <li key={id}><Link to={"categories/" + category}>{category}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div className="head-cart">
-          <span>{cartAmount}</span>
-          <img src="#" />
-        </div>
-      </div>
-      <div>
-        <Outlet context={[products, setProducts]} />
-      </div>
+      <Header categories={categories} />
+      <Outlet context={[products, setProducts]} />
       <Footer />
     </div>
     )

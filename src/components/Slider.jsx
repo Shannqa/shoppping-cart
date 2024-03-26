@@ -1,28 +1,22 @@
-import { Link } from "react";
+import { Link } from "react-router-dom";
+import salesData from "../data/sales.json";
 import styles from "./Slider.module.css";
 
 function Slider() {
+  const data = salesData.json();
   
   return(
     <div className="slider">
-      <div className="slide">
-        <h3>International Women's Day</h3>
-        <p>All jewelery 15% off with the code "WOMAN".</p>
-        <Link to="./categories/jewelery">Browse jewelery</Link>
-        <img src="#" />
-      </div>
-      <div className="slide">
-        <h3>Placeholder</h3>
-        <p>Lorem ipsum sialala!</p>
-        <img src="#" />
-      </div>
-      <div className="slide">
-        <h3>Placeholder</h3>
-        <p>Lorem ipsum sialala!</p>
-        <img src="#" />
-      </div>
+      {data.map((slide) => (
+        <div className="slide" key={slide.id}>
+          <h3>{slide.title}</h3>
+          <p>{slide.desc}</p>
+          <Link to={slide.url}>{slide.url-text}</Link>
+        </div>
+      ))}
     </div>
   )
   
 }
 
+export default Slider

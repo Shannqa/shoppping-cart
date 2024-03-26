@@ -14,6 +14,10 @@ function Router() {
       errorElement: <ErrorPage />,
       children: [
         {
+          index: true,
+          element: <Home />
+        },
+        {
           path: "/categories",
           element: <Categories />,
           children: [

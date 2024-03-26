@@ -1,8 +1,16 @@
-{
+[{
   "id": "0",
   "title": "International Women's Day",
   "desc": "All jewelery 15% off with the code 'WOMAN'.",
   "url": "./categories/jewelery",
   "url-text": "Browse jewelery"
-}
+},
+{
+  "id": "1",
+  "title": "Placeholder Sale",
+  "desc": "Amazing sale - everything 50% off right now!",
+  "url": "./categories",
+  "url-text": "Click here"
+
+}]
 

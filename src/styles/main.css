@@ -169,3 +169,16 @@ h2 {
   background-color: rgb(124, 55, 93);
   color: white;
 }
+
+.mobile-menu .menu-list {
+  
+}
+
+.browser-menu .menu-list {
+  
+}
+
+.browser-menu .logo {
+  cursor: pointer;
+  
+}

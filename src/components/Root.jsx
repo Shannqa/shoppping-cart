@@ -5,11 +5,12 @@ import Footer from "./Footer.jsx";
 import "../styles/main.css";
 
 function Root() {
-  const [cartAmount, setCartAmount] = useState(0);
+  const [userCart, setUserCart] = useState([]);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
+  
   
   useEffect(() => {
     Promise.all([
@@ -40,7 +41,7 @@ function Root() {
 
   return(
     <div className="root">
-      <Header categories={categories} />
+      <Header categories={categories} userCart={userCart} setUserCart={setUserCart}/>
       <Outlet context={[products, setProducts]} />
       <Footer />
     </div>

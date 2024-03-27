@@ -9,14 +9,18 @@ function Category() {
   
   return(
     <div className="category">
-      <h3>{category}</h3>
+      <h2>{category}</h2>
       <div className="products">
         {currentProducts.map(product => (<div key={product.id} className="product">
-        <Link to={"/products/" + product.id}><h4>{product.title}</h4> </Link>
-        <p className="price">{product.price}</p>
-        <img src={product.image} />
-        <p>{product.description}</p>
-
+        <Link to={"/products/" + product.id} className="title"><h3>{product.title}</h3> </Link>
+        <div className="left">
+          <img src={product.image} />
+          <p className="price">{"$" + product.price}</p>
+          <a className="add-to-cart">Add to cart</a>
+        </div>
+        <div className="right">
+          <p>{product.description}</p>
+        </div>
         </div>))}
       </div>
     </div>

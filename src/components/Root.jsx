@@ -39,7 +39,7 @@ function Root() {
   
 
   return(
-    <div>
+    <div className="root">
       <Header categories={categories} />
       <Outlet context={[products, setProducts]} />
       <Footer />

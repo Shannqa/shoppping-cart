@@ -34,8 +34,8 @@ body {
 }
 
 .product img {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
 }
 
 .product price {
@@ -89,4 +89,83 @@ body {
 
 .mobile-menu-btn {
   width: 30px;
+}
+
+.home {
+  margin: 4px;
+  padding: 4px;
+}
+
+.header ul {
+  margin: 4px;
+}
+
+a {
+ color: rgb(74, 74, 167);
+ text-decoration: none;
+}
+
+a:hover {
+  color: rgb(55, 124, 91);
+}
+
+a:active {
+  color: rgb(124, 55, 93);
+}
+
+.root {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin: 4px;
+  text-transform: capitalize;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-areas: "name name"
+                       "left right"
+}
+
+.product .title {
+  grid-area: name;
+  margin-bottom: 4px;
+}
+
+.product .left {
+  grid-area: left;
+}
+
+.product .right {
+  grid-area: right;
+}
+
+.add-to-cart {
+  background-color: rgb(74, 74, 167);
+  padding: 8px 12px;
+  font-weight: bold;
+  color: white;
+  margin: 6px 0px;
+  display: block;
+  text-transform: uppercase;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background-color: rgb(55, 124, 91);
+  color: white;
+}
+
+.add-to-cart:active {
+  background-color: rgb(124, 55, 93);
+  color: white;
 }
